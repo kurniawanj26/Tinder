@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { TAB_BAR_DEFAULT } from '../utils/constants';
 import images from '../../assets/images';
 
@@ -42,11 +42,7 @@ function TabNavigator() {
           return (
             <Image
               source={icon}
-              style={{
-                width: 26,
-                height: 26,
-                tintColor: !focused && '#999',
-              }}
+              style={[styles.icon, { tintColor: !focused && '#999' }]}
             />
           );
         },
@@ -71,3 +67,10 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 26,
+    height: 26,
+  },
+});
