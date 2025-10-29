@@ -19,9 +19,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: Downgrade npm to v9
+      - name: Use stable npm (v9)
         run: npm install -g npm@9
 
       - name: Clean npm cache and install dependencies
