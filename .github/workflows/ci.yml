@@ -25,7 +25,6 @@ jobs:
 
       - name: Clean npm cache and install dependencies
         run: |
-          npm cache clean --force
           npm install
 
       - name: Lint only src and assets
