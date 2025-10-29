@@ -19,12 +19,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm i
+      - name: Downgrade npm to v9
+        run: npm install -g npm@9
+
+      - name: Clean npm cache and install dependencies
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm ci
 
       - name: Lint only src and assets
-        run: npm run lint --if-present
+        run: npx eslint src assets --max-warnings=0
 
       - name: Install CocoaPods
         run: |
