@@ -1,3 +1,7 @@
+![asd-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9503b366-8d35-48f1-b49b-7beef469f59b)
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -95,3 +99,20 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+# Tech Stack
+
+This project uses:
+
+⚛️ React Native — core framework
+
+📦 Zustand — lightweight state management
+
+🔍 TanStack Query (React Query) — async data fetching & caching
+
+🌐 Axios — HTTP client for API requests
+
+🎴 React Native Deck Swiper — Tinder-like card swipe interface
+
+🧭 React Navigation — navigation library (stack & tabs)
