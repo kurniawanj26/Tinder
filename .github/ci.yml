@@ -1,0 +1,41 @@
+name: CI - iOS Build & Lint
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  ios-build-lint:
+    name: Build iOS & Lint Check
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint only src and assets
+        run: npm run lint --if-present
+
+      - name: Install CocoaPods
+        run: |
+          cd ios
+          pod install --repo-update
+
+      - name: Build iOS app
+        run: |
+          cd ios
+          xcodebuild -workspace TinderApp.xcworkspace \
+                     -scheme TinderApp \
+                     -sdk iphonesimulator \
+                     -configuration Debug \
+                     build | xcpretty
